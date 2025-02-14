@@ -1,6 +1,6 @@
 from crewai import Crew
 from textwrap import dedent
-from travel_agent.src.travel_agent.config.trip_agents import TripAgents
+from travel_agent.config.trip_agents import TripAgents
 from travel_agent.config.trip_tasks import TripTasks
 
 

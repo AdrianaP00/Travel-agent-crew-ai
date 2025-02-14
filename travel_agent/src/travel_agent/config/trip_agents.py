@@ -1,9 +1,8 @@
 from crewai import Agent
 from langchain.llms import OpenAI
-
-from tools.browser_tools import BrowserTools
-from tools.calculator_tools import CalculatorTools
-from tools.search_tools import SearchTools
+from travel_agent.tools.browser_tools import BrowserTools
+from travel_agent.tools.calculator_tools import CalculatorTools
+from travel_agent.tools.search_tools import SearchTools
 
 
 class TripAgents():
