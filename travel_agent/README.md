@@ -1,54 +1,70 @@
-# TravelAgent Crew
+# Travel Agent Crew AI
 
-Welcome to the TravelAgent Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
-
-## Installation
-
-Ensure you have Python >=3.10 <3.13 installed on your system. This project uses [UV](https://docs.astral.sh/uv/) for dependency management and package handling, offering a seamless setup and execution experience.
-
-First, if you haven't already, install uv:
-
-```bash
-pip install uv
+Este proyecto es un agente de viaje automatizado utilizando CrewAI. El agente puede planificar actividades personalizadas, buscar restaurantes y compilar itinerarios de viaje.
+## Estructura del Proyecto
+```
+.
+├── README.md
+├── knowledge
+│   └── user_preference.txt
+├── main.py
+├── pyproject.toml
+├── requirements.txt
+├── src
+├── travel_agent
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   ├── __init__.cpython-312.pyc
+│   │   └── main.cpython-312.pyc
+│   ├── config
+│   │   ├── __pycache__
+│   │   │   ├── trip_agents.cpython-312.pyc
+│   │   │   └── trip_tasks.cpython-312.pyc
+│   │   ├── trip_agents.py
+│   │   └── trip_tasks.py
+│   ├── crew.py
+│   └── tools
+│       ├── __init__.py
+│       ├── __pycache__
+│       │   ├── __init__.cpython-312.pyc
+│       │   ├── browser_tool.cpython-312.pyc
+│       │   ├── calculator_tool.cpython-312.pyc
+│       │   └── search_tool.cpython-312.pyc
+│       ├── browser_tool.py
+│       ├── calculator_tool.py
+│       └── search_tool.py
+└── uv.lock
 ```
 
-Next, navigate to your project directory and install the dependencies:
+## Instalación
 
-(Optional) Lock the dependencies and install them by using the CLI command:
-```bash
-crewai install
-```
-### Customizing
+1. Clona el repositorio:
+    ```sh
+    git clone <URL_DEL_REPOSITORIO>
+    cd travel_agent
+    ```
 
-**Add your `OPENAI_API_KEY` into the `.env` file**
+2. Crea y activa un entorno virtual:
+    ```sh
+    python -m venv venv
+    source venv/bin/activate  # En Windows usa `venv\Scripts\activate`
+    ```
 
-- Modify `src/travel_agent/config/agents.yaml` to define your agents
-- Modify `src/travel_agent/config/tasks.yaml` to define your tasks
-- Modify `src/travel_agent/crew.py` to add your own logic, tools and specific args
-- Modify `src/travel_agent/main.py` to add custom inputs for your agents and tasks
+3. Instala las dependencias:
+    ```sh
+    pip install -r requirements.txt
+    ```
 
-## Running the Project
+4. Configura las variables de entorno en el archivo [.env](http://_vscodecontentref_/14):
+    ```env
+    MODEL=gpt-3
+    OPENAI_API_KEY=tu_api_key
+    SERPER_API_KEY=tu_api_key
+    BROWSERLESS_API_KEY=tu_api_key
+    ```
 
-To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
+## Uso
 
-```bash
-$ crewai run
-```
-
-This command initializes the travel-agent Crew, assembling the agents and assigning them tasks as defined in your configuration.
-
-This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
-
-## Understanding Your Crew
-
-The travel-agent Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
-
-## Support
-
-For support, questions, or feedback regarding the TravelAgent Crew or crewAI.
-- Visit our [documentation](https://docs.crewai.com)
-- Reach out to us through our [GitHub repository](https://github.com/joaomdmoura/crewai)
-- [Join our Discord](https://discord.com/invite/X4JWnZnxPb)
-- [Chat with our docs](https://chatg.pt/DWjSBZn)
-
-Let's create wonders together with the power and simplicity of crewAI.
+Para ejecutar el agente de viaje, usa el siguiente comando:
+```sh
+python3 travel_agent/main.py
